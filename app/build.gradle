@@ -9,7 +9,18 @@
 plugins {
     // Apply the application plugin to add support for building a CLI application in Java.
     id 'application'
+    id 'jacoco'
+    id 'checkstyle'
+    id "io.freefair.lombok" version "6.0.0-m2"
 }
+
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+
+sourceCompatibility = '11'
 
 repositories {
     // Use Maven Central for resolving dependencies.
@@ -17,15 +28,15 @@ repositories {
 }
 
 dependencies {
+    // This dependency is used by the application.
+    implementation 'com.google.guava:guava:30.1-jre'
+
     // Use JUnit Jupiter for testing.
     testImplementation 'org.junit.jupiter:junit-jupiter:5.7.1'
     testImplementation group: 'org.hamcrest', name: 'hamcrest-library', version: '2.2'
     testImplementation group: 'org.mockito', name: 'mockito-core', version: '3.8.0'
     testRuntimeOnly("org.junit.platform:junit-platform-runner:1.7.1")
 
-
-    // This dependency is used by the application.
-    implementation 'com.google.guava:guava:30.1-jre'
 }
 
 application {
@@ -37,3 +48,50 @@ tasks.named('test') {
     // Use JUnit Platform for unit tests.
     useJUnitPlatform()
 }
+
+jacocoTestReport {
+    dependsOn test // tests are required to run before generating the report
+    reports {
+        xml.enabled false
+        csv.enabled false
+    }
+    afterEvaluate {
+        classDirectories.setFrom(files(classDirectories.files.collect {
+            fileTree(dir: it, exclude: [
+                    '**/*dto**',
+                    '**/App.*'
+            ])
+        }))
+    }
+}
+
+jacocoTestCoverageVerification {
+    violationRules {
+        rule {
+            limit {
+                minimum = 0.99
+            }
+        }
+
+        rule {
+            enabled = false
+            element = 'CLASS'
+            includes = ['org.gradle.*']
+
+            limit {
+                counter = 'LINE'
+                value = 'TOTALCOUNT'
+                maximum = 0.3
+            }
+        }
+    }
+    afterEvaluate {
+        classDirectories.setFrom(files(classDirectories.files.collect {
+            fileTree(dir: it, exclude: [
+                    '**/*dto**',
+                    '**/SearchApplication.*'
+            ])
+        }))
+    }
+}
+check.dependsOn jacocoTestCoverageVerification
