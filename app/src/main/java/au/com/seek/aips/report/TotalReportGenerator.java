@@ -1,8 +1,8 @@
 package au.com.seek.aips.report;
 
-import au.com.seek.aips.entity.VehicleTraffic;
-
 import java.util.List;
+
+import au.com.seek.aips.entity.VehicleTraffic;
 
 class TotalReportGenerator {
   Long totalOf(List<VehicleTraffic> vehicles) {

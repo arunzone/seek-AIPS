@@ -1,14 +1,14 @@
 package au.com.seek.aips.report;
 
-import au.com.seek.aips.entity.VehicleTraffic;
-import org.hamcrest.MatcherAssert;
-import org.hamcrest.collection.IsIterableContainingInOrder;
-import org.junit.jupiter.api.Test;
-
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.Month;
 import java.util.List;
+
+import au.com.seek.aips.entity.VehicleTraffic;
+import org.hamcrest.MatcherAssert;
+import org.hamcrest.collection.IsIterableContainingInOrder;
+import org.junit.jupiter.api.Test;
 
 class PerDayTotalReportGeneratorTest {
 

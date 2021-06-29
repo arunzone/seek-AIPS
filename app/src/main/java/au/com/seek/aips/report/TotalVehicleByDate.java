@@ -1,11 +1,11 @@
 package au.com.seek.aips.report;
 
+import java.time.LocalDate;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.Generated;
-
-import java.time.LocalDate;
 
 @Generated
 @EqualsAndHashCode
