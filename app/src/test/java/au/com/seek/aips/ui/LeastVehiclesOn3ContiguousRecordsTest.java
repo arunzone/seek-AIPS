@@ -42,6 +42,7 @@ class LeastVehiclesOn3ContiguousRecordsTest {
     String text = tapSystemOut(() -> leastVehiclesOn3ContiguousRecords.display(vehicles));
 
     assertThat(text, is("""
+                
         Least traffic 3 contiguous records
         2021-06-28T13:00:00 15
         2021-06-29T13:00:00 20

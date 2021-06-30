@@ -56,8 +56,7 @@ jacocoTestReport {
     afterEvaluate {
         classDirectories.setFrom(files(classDirectories.files.collect {
             fileTree(dir: it, exclude: [
-                    '**/*dto**',
-                    '**/App.*'
+                    '**/*entity**'
             ])
         }))
     }
@@ -67,7 +66,7 @@ jacocoTestCoverageVerification {
     violationRules {
         rule {
             limit {
-                minimum = 0.97
+                minimum = 0.99
             }
         }
 
@@ -86,8 +85,7 @@ jacocoTestCoverageVerification {
     afterEvaluate {
         classDirectories.setFrom(files(classDirectories.files.collect {
             fileTree(dir: it, exclude: [
-                    '**/*dto**',
-                    '**/SearchApplication.*'
+                    '**/*entity**'
             ])
         }))
     }

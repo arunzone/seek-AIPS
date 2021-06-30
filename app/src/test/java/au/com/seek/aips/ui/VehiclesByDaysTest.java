@@ -39,6 +39,7 @@ class VehiclesByDaysTest {
     String text = tapSystemOut(() -> vehiclesByDays.displayTotalPerDayFrom(vehicles));
 
     assertThat(text, is("""
+                
         Number of cars by date
         2021-06-28 10
         2021-06-29 20

@@ -41,6 +41,7 @@ class TopMost3MaxTrafficVehiclesTest {
     String text = tapSystemOut(() -> topMost3MaxTrafficVehicles.display(vehicles));
 
     assertThat(text, is("""
+                
         Top 3 high traffic records
         2021-06-28T13:00:00 15
         2021-06-29T13:00:00 20

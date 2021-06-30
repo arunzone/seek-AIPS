@@ -7,16 +7,16 @@ import au.com.seek.aips.entity.VehicleTraffic;
 import au.com.seek.aips.report.PerDayTotalReportGenerator;
 import au.com.seek.aips.report.TotalVehicleByDate;
 
-class VehiclesByDays {
+public class VehiclesByDays {
 
   private final PerDayTotalReportGenerator perDayTotalReportGenerator;
 
-  VehiclesByDays(PerDayTotalReportGenerator perDayTotalReportGenerator) {
+  public VehiclesByDays(PerDayTotalReportGenerator perDayTotalReportGenerator) {
     this.perDayTotalReportGenerator = perDayTotalReportGenerator;
   }
 
-  void displayTotalPerDayFrom(List<VehicleTraffic> vehicles) {
-    System.out.println("Number of cars by date");
+  public void displayTotalPerDayFrom(List<VehicleTraffic> vehicles) {
+    System.out.println("\nNumber of cars by date");
     List<TotalVehicleByDate> totalVehicleByDates = perDayTotalReportGenerator.totalByDate(vehicles);
     totalVehicleByDates.forEach(vehicle -> {
       String date = DateTimeFormatter.ISO_LOCAL_DATE.format(vehicle.getDate());
