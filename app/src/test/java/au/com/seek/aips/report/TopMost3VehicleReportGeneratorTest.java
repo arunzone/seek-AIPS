@@ -21,7 +21,7 @@ class TopMost3VehicleReportGeneratorTest {
         new VehicleTraffic(timestamp, 25L));
 
     Top3VehicleReportGenerator top3VehicleReportGenerator = new Top3VehicleReportGenerator();
-    List<VehicleTraffic> topMost3VehicleTraffics = top3VehicleReportGenerator.findTopMost3CountFrom(vehicles);
+    List<VehicleTraffic> topMost3VehicleTraffics = top3VehicleReportGenerator.findTopMost3TrafficsFrom(vehicles);
 
     assertThat(topMost3VehicleTraffics, IsIterableContainingInOrder.contains(
         new VehicleTraffic(timestamp, 25L),
