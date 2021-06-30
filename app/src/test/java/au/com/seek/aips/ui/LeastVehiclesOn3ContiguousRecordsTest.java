@@ -28,7 +28,8 @@ class LeastVehiclesOn3ContiguousRecordsTest {
 
   @Test
   public void shouldDisplayLeast3ContiguousRecords() throws Exception {
-    LeastVehiclesOn3ContiguousRecords leastVehiclesOn3ContiguousRecords = new LeastVehiclesOn3ContiguousRecords(reportGenerator);
+    LeastVehiclesOn3ContiguousRecords leastVehiclesOn3ContiguousRecords =
+        new LeastVehiclesOn3ContiguousRecords(reportGenerator);
     List<VehicleTraffic> vehicles = List.of();
     LocalDateTime date28th = LocalDateTime.of(2021, Month.JUNE, 28, 13, 0);
     LocalDateTime date29th = LocalDateTime.of(2021, Month.JUNE, 29, 13, 0);

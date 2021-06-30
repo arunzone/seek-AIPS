@@ -13,11 +13,11 @@ import au.com.seek.aips.entity.VehicleTraffic;
 public class PerDayTotalReportGenerator {
 
   public List<TotalVehicleByDate> totalByDate(List<VehicleTraffic> vehicles) {
-    Map<LocalDate, Long> totalReportMap = vehicles.stream().
-        map(vehicle -> new TotalVehicleByDate(
+    Map<LocalDate, Long> totalReportMap = vehicles.stream()
+        .map(vehicle -> new TotalVehicleByDate(
             vehicle.getTimestamp().toLocalDate(),
-            vehicle.getCount())).
-        collect(groupingBy(
+            vehicle.getCount()))
+        .collect(groupingBy(
             vehicle -> vehicle.getDate(),
             summingLong(vehicle -> vehicle.getCount())));
 
@@ -25,8 +25,8 @@ public class PerDayTotalReportGenerator {
   }
 
   private List<TotalVehicleByDate> listOf(Map<LocalDate, Long> totalReportMap) {
-    return totalReportMap.entrySet().stream().
-        map(entry -> new TotalVehicleByDate(entry.getKey(), entry.getValue())).
-        collect(Collectors.toList());
+    return totalReportMap.entrySet().stream()
+        .map(entry -> new TotalVehicleByDate(entry.getKey(), entry.getValue()))
+        .collect(Collectors.toList());
   }
 }

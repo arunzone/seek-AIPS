@@ -15,7 +15,7 @@ import org.junit.jupiter.api.Test;
 class PerDayTotalReportGeneratorTest {
 
   @Test
-  public void shouldReturnTotalCarsForADay() {
+  public void shouldReturnTotalCarsForOneDay() {
     PerDayTotalReportGenerator perDayTotalReportGenerator = new PerDayTotalReportGenerator();
     List<VehicleTraffic> vehicles = List.of(
         new VehicleTraffic(LocalDateTime.of(2021, Month.JUNE, 29, 13, 0), 15L),

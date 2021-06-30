@@ -24,7 +24,7 @@ class FileRepositoryTest {
   }
 
   @Test
-  void shouldThrowExceptionWhenNotAFile() {
+  void shouldThrowExceptionWhenFileNotFound() {
     FileRepository fileRepository = new FileRepository();
 
     InvalidInputFileException invalidInputFileException = assertThrows(InvalidInputFileException.class, () -> {

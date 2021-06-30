@@ -14,15 +14,15 @@ import au.com.seek.aips.entity.VehicleTraffic;
 public class LeastVehiclesOnContiguous3RecordsReportGenerator {
 
   public List<VehicleTraffic> findLeastTrafficOn3Contiguous(List<VehicleTraffic> vehicles) {
-    Stream<SimpleEntry<Long, List<VehicleTraffic>>> contiguousSumEntries = IntStream.range(0, vehicles.size()).
-        filter(index -> vehicles.size() > index + 2).
-        mapToObj(index -> sumTrafficListEntryFrom(vehicles, index));
-    return contiguousSumEntries.
-        sorted(comparingByKey()).
-        limit(1L).
-        map(SimpleEntry::getValue).
-        flatMap(Collection::stream).
-        collect(Collectors.toList());
+    Stream<SimpleEntry<Long, List<VehicleTraffic>>> contiguousSumEntries = IntStream.range(0, vehicles.size())
+        .filter(index -> vehicles.size() > index + 2)
+        .mapToObj(index -> sumTrafficListEntryFrom(vehicles, index));
+    return contiguousSumEntries
+        .sorted(comparingByKey())
+        .limit(1L)
+        .map(SimpleEntry::getValue)
+        .flatMap(Collection::stream)
+        .collect(Collectors.toList());
   }
 
   private SimpleEntry<Long, List<VehicleTraffic>> sumTrafficListEntryFrom(List<VehicleTraffic> vehicles, int index) {

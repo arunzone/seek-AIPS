@@ -11,7 +11,8 @@ public class LeastVehiclesOn3ContiguousRecords {
 
   private final LeastVehiclesOnContiguous3RecordsReportGenerator top3VehicleReportGenerator;
 
-  public LeastVehiclesOn3ContiguousRecords(LeastVehiclesOnContiguous3RecordsReportGenerator top3VehicleReportGenerator) {
+  public LeastVehiclesOn3ContiguousRecords(
+      LeastVehiclesOnContiguous3RecordsReportGenerator top3VehicleReportGenerator) {
     this.top3VehicleReportGenerator = top3VehicleReportGenerator;
   }
 
