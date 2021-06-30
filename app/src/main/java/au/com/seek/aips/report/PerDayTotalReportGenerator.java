@@ -10,9 +10,9 @@ import java.util.stream.Collectors;
 
 import au.com.seek.aips.entity.VehicleTraffic;
 
-class PerDayTotalReportGenerator {
+public class PerDayTotalReportGenerator {
 
-  List<TotalVehicleByDate> totalByDate(List<VehicleTraffic> vehicles) {
+  public List<TotalVehicleByDate> totalByDate(List<VehicleTraffic> vehicles) {
     Map<LocalDate, Long> totalReportMap = vehicles.stream().
         map(vehicle -> new TotalVehicleByDate(
             vehicle.getTimestamp().toLocalDate(),

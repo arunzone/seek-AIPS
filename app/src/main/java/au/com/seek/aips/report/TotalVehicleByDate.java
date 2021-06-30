@@ -11,7 +11,7 @@ import lombok.Generated;
 @EqualsAndHashCode
 @AllArgsConstructor
 @Data
-class TotalVehicleByDate {
+public class TotalVehicleByDate {
   private final LocalDate date;
   private final Long count;
 }
