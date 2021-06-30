@@ -11,9 +11,9 @@ import java.util.stream.Stream;
 
 import au.com.seek.aips.entity.VehicleTraffic;
 
-class LeastVehiclesOnContiguous3RecordsReportGenerator {
+public class LeastVehiclesOnContiguous3RecordsReportGenerator {
 
-  List<VehicleTraffic> findLeastTrafficOn3Contiguous(List<VehicleTraffic> vehicles) {
+  public List<VehicleTraffic> findLeastTrafficOn3Contiguous(List<VehicleTraffic> vehicles) {
     Stream<SimpleEntry<Long, List<VehicleTraffic>>> contiguousSumEntries = IntStream.range(0, vehicles.size()).
         filter(index -> vehicles.size() > index + 2).
         mapToObj(index -> sumTrafficListEntryFrom(vehicles, index));
